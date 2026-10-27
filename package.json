@@ -1,0 +1,11 @@
+{
+  "name": "medicare-hpms",
+  "version": "2.0.0",
+  "description": "MediCare Hospital Patient Management System — Phase 2 front-end prototype (HTML, CSS, JavaScript)",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes http-server . -p 5500 -c-1 -o /index.html"
+  },
+  "keywords": ["hospital", "patient-management", "accessibility", "html", "css", "javascript"],
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,14 @@
+# Dependencies & build output
+node_modules/
+dist/
+# Environment & secrets (never commit credentials or real patient data)
+.env
+.env.*
+*.pem
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

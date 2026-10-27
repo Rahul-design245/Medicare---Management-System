@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MediCare General Hospital patient portal — book appointments, view medical records and lab reports, and pay hospital bills online.">
+  <title>Sign in · MediCare HPMS</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <a class="skip-link" href="#signinTitle">Skip to sign-in form</a>
+
+  <div class="auth">
+    <!-- Brand panel (decorative/marketing content) -->
+    <section class="auth-hero on-dark" aria-label="About the MediCare patient portal">
+      <a class="brand" href="index.html" aria-label="MediCare General Hospital, Colombo — home">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>
+        <span><span class="brand-name">MediCare</span><br><span class="brand-sub">General Hospital · Colombo</span></span>
+      </a>
+      <h1>Your health,<br>securely in one place.</h1>
+      <p class="lead">Book appointments, view medical records and lab reports, and pay hospital bills online — anytime, anywhere.</p>
+      <ul class="features">
+        <li><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-calendar-check"></use></svg></span><span><strong>Book appointments in minutes</strong><span class="sub">Choose your doctor, date and time slot</span></span></li>
+        <li><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-folder-heart"></use></svg></span><span><strong>Records &amp; lab reports</strong><span class="sub">Access your authorised health records 24/7</span></span></li>
+        <li><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-credit-card"></use></svg></span><span><strong>Secure online payments</strong><span class="sub">Pay bills through a trusted payment gateway</span></span></li>
+      </ul>
+      <div class="hero-card" aria-label="Example of an appointment card">
+        <div class="row between"><span class="eyebrow">Next appointment · example</span><span class="badge badge-success">Confirmed</span></div>
+        <div class="row" style="margin-top:12px">
+          <span class="avatar lg teal" aria-hidden="true">NS</span>
+          <span><strong style="font-size:16px">Dr. Nimal Silva</strong><br><span class="muted">General Medicine · OPD Room 12</span></span>
+        </div>
+        <div class="meta"><span><svg class="i i-sm" aria-hidden="true"><use href="#i-calendar"></use></svg><span id="heroDate">Fri, 24 Oct 2026</span></span><span><svg class="i i-sm" aria-hidden="true"><use href="#i-clock"></use></svg>10:30 AM</span></div>
+      </div>
+      <div class="trust">
+        <span><svg class="i i-sm" aria-hidden="true"><use href="#i-lock"></use></svg>Encrypted connection</span>
+        <span><svg class="i i-sm" aria-hidden="true"><use href="#i-shield-check"></use></svg>Role-based access</span>
+        <span><svg class="i i-sm" aria-hidden="true"><use href="#i-file-search"></use></svg>Every access logged</span>
+      </div>
+      <p class="copyright">© <span id="year">2026</span> MediCare General Hospital. All rights reserved.</p>
+    </section>
+
+    <!-- Sign-in panel -->
+    <main class="auth-panel" id="main">
+      <div class="auth-top">
+        <div class="lang">
+          <svg class="i i-sm muted" aria-hidden="true"><use href="#i-globe"></use></svg>
+          <label for="lang" class="sr-only">Language</label>
+          <select id="lang" class="select">
+            <option value="en">English</option>
+            <option value="si">සිංහල (Sinhala)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+        <a href="#" id="helpLink">Help &amp; Support</a>
+      </div>
+
+      <div class="auth-form-wrap">
+        <div id="notice" aria-live="polite"></div>
+
+        <!-- Step 1: credentials -->
+        <section id="credStep">
+          <h2 id="signinTitle" tabindex="-1">Welcome back</h2>
+          <p class="lead">Sign in to manage your healthcare online.</p>
+
+          <div id="formError" role="alert"></div>
+
+          <form id="loginForm" novalidate aria-labelledby="signinTitle">
+            <fieldset class="field">
+              <legend class="label" style="font-size:var(--fs-body);font-weight:500;margin-bottom:6px">Sign in as</legend>
+              <div class="segmented" id="roleGroup">
+                <label><input type="radio" name="role" value="patient" checked><span class="seg"><svg class="i i-sm" aria-hidden="true"><use href="#i-user"></use></svg>Patient</span></label>
+                <label><input type="radio" name="role" value="doctor"><span class="seg"><svg class="i i-sm" aria-hidden="true"><use href="#i-stethoscope"></use></svg>Doctor</span></label>
+                <label><input type="radio" name="role" value="nurse"><span class="seg"><svg class="i i-sm" aria-hidden="true"><use href="#i-heart-pulse"></use></svg>Nurse</span></label>
+                <label><input type="radio" name="role" value="admin"><span class="seg"><svg class="i i-sm" aria-hidden="true"><use href="#i-shield"></use></svg>Admin</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="label" for="identifier" id="identifierLabel">Email address or Patient ID</label>
+              <div class="input-wrap">
+                <svg class="i" aria-hidden="true"><use href="#i-mail"></use></svg>
+                <input class="input" id="identifier" name="identifier" type="text" inputmode="email" autocomplete="username" placeholder="e.g. alex.perera@example.com" aria-describedby="identifierHint" spellcheck="false">
+              </div>
+              <p class="hint" id="identifierHint">Patient ID format: MC-2026-04817</p>
+            </div>
+
+            <div class="field">
+              <div class="field-row">
+                <label class="label" for="password">Password</label>
+                <a href="#" id="forgotLink">Forgot password?</a>
+              </div>
+              <div class="input-wrap">
+                <svg class="i" aria-hidden="true"><use href="#i-lock"></use></svg>
+                <input class="input has-action" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password">
+                <button type="button" class="icon-btn plain input-action" id="togglePw" aria-label="Show password" aria-pressed="false" aria-controls="password">
+                  <svg class="i" aria-hidden="true"><use href="#i-eye"></use></svg>
+                </button>
+              </div>
+              <p class="hint" id="capsHint" hidden><svg class="i i-xs" aria-hidden="true"><use href="#i-triangle-alert"></use></svg>Caps Lock is on</p>
+            </div>
+
+            <label class="check" style="margin-bottom:20px"><input type="checkbox" id="remember"> Remember me on this device</label>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="signInBtn">Sign In <svg class="i i-sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+          </form>
+
+          <div id="patientExtras">
+            <div class="or" aria-hidden="true">OR</div>
+            <button type="button" class="btn btn-secondary btn-block btn-lg" id="otpBtn"><svg class="i" aria-hidden="true"><use href="#i-smartphone"></use></svg>Sign in with one-time code (OTP)</button>
+            <p style="text-align:center;margin-top:16px" class="muted">New patient? <a href="pages/register.html">Create an account</a></p>
+          </div>
+
+          <div class="secure-note">
+            <svg class="i" aria-hidden="true"><use href="#i-shield-check"></use></svg>
+            <div><strong>Staff accounts are protected by 2-step verification.</strong><br><span class="muted">Doctors, nurses &amp; admins confirm sign-in with a code.</span></div>
+          </div>
+
+          <details class="demo-box">
+            <summary><svg class="i i-sm text-primary" aria-hidden="true"><use href="#i-info"></use></svg>Demo accounts (fictional — prototype only)</summary>
+            <div class="body">
+              <p class="caption" style="margin-bottom:8px">Password for all accounts: <strong class="num">MediCare@2026</strong> · Staff 2-step code: <strong class="num">246810</strong></p>
+              <table>
+                <tbody>
+                  <tr><td><strong>Patient</strong></td><td>alex.perera@example.com<br><span class="muted">or MC-2026-04817</span></td><td><button type="button" class="btn-link use" data-fill="patient|alex.perera@example.com">Use</button></td></tr>
+                  <tr><td><strong>Patient 2</strong></td><td>sam.silva@example.com</td><td><button type="button" class="btn-link use" data-fill="patient|sam.silva@example.com">Use</button></td></tr>
+                  <tr><td><strong>Doctor</strong></td><td>nimal.silva@medicare.lk</td><td><button type="button" class="btn-link use" data-fill="doctor|nimal.silva@medicare.lk">Use</button></td></tr>
+                  <tr><td><strong>Nurse</strong></td><td>malini.dias@medicare.lk</td><td><button type="button" class="btn-link use" data-fill="nurse|malini.dias@medicare.lk">Use</button></td></tr>
+                  <tr><td><strong>Admin</strong></td><td>kasun.j@medicare.lk</td><td><button type="button" class="btn-link use" data-fill="admin|kasun.j@medicare.lk">Use</button></td></tr>
+                </tbody>
+              </table>
+              <p class="caption" style="margin-top:8px">In a real system credentials are verified by a secure server — never in browser JavaScript.</p>
+            </div>
+          </details>
+        </section>
+
+        <!-- Step 2: 2-step verification for staff -->
+        <section id="mfaStep" hidden>
+          <span class="tile" style="margin-bottom:16px"><svg class="i" aria-hidden="true"><use href="#i-shield-check"></use></svg></span>
+          <h2 id="mfaTitle" tabindex="-1">2-step verification</h2>
+          <p class="lead" id="mfaLead">Enter the 6-digit code we sent to your registered device.</p>
+          <form id="mfaForm" novalidate>
+            <div class="field">
+              <label class="label" for="otp">Verification code</label>
+              <input class="input otp-input" id="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="••••••" aria-describedby="otpHint">
+              <p class="hint" id="otpHint">Demo code: 246810. The code expires in 5 minutes.</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Verify &amp; sign in</button>
+            <div class="row between" style="margin-top:16px">
+              <button type="button" class="btn-link" id="mfaBack"><svg class="i i-sm" aria-hidden="true" style="display:inline"><use href="#i-arrow-left"></use></svg> Back</button>
+              <button type="button" class="btn-link" id="mfaResend">Resend code</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <footer class="auth-foot">
+        <p class="caption" style="font-weight:400"><svg class="i i-xs" aria-hidden="true" style="display:inline;vertical-align:-2px"><use href="#i-lock"></use></svg> Your connection is encrypted. We never reveal whether an email is registered.</p>
+        <nav aria-label="Legal and support">
+          <a href="#" data-info="privacy">Privacy Policy</a>
+          <a href="#" data-info="terms">Terms of Use</a>
+          <a href="#" data-info="a11y">Accessibility</a>
+          <span class="muted">Contact: <a href="tel:+94112345678">011 234 5678</a></span>
+        </nav>
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/login.js"></script>
+</body>
+</html>
